@@ -1,4 +1,31 @@
-div.test
+div /*For all Divs */
 {
 	padding-left: 25px;
 }
+
+div.divadd
+{
+	padding-left: 25px;
+	border: 1px solid blue; /* Delete these lines later */
+}
+
+div.divlist
+{
+	width: 300px;
+    float:left;
+    padding-right: 25px;
+    padding-bottom: 25px; 
+    border: 1px solid red; /* Delete these lines later */
+}
+
+div.divbuttons
+{
+	border: 1px solid green; /* Delete these lines later */
+    overflow: hidden; /* This prevents the divs from overlapping */
+}
+
+button
+{
+	margin: 10px;
+}
+
