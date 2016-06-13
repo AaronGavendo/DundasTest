@@ -5,6 +5,7 @@ $(document).ready(function () {
 console.log("Ready Function Loads");
 var nameArr = [];
 var valuArr = [];
+var alphanum = /^[0-9a-zA-Z]+$/;
 
 
 	//When the Add button is pressed
@@ -17,11 +18,20 @@ var valuArr = [];
 		}
 		else if (nv.indexOf('=') > 0) //'nv.indexOf('=') > -1' checks where the '=' is. 
 		{ 
+			//This part splits the entry based on the '=' and puts it into two arrays
 			var res = nv.split("=");
 			nameArr.push(res[0]);
 			valuArr.push(res[1]);
-
 			console.log(nameArr, valuArr);
+
+			//This part places those arrays into box in the HTML
+			var arLen, i ,text;
+			arLen = valuArr.length;
+
+			for (i = 0; i < arLen; i++) {
+    			text += "<option>" + nameArr[i] + "  " + valuArr[i] + "</option>";
+			}
+			document.getElementById("list1").innerHTML = text;
 		}
 		else //If no '=' is entered program will go here. 
 		{
