@@ -1,5 +1,3 @@
-console.log("Test JavaScript");
-
 //Function to run when website is loaded
 $(document).ready(function () {
 console.log("Ready Function Loads");
@@ -38,6 +36,25 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 			alert('You need a = sign (eg. Name=Value)'); 
 		}
 
+	});
+
+	$("#sortName").click(function () {
+		//Create new array. Splice two arrays. Then sort by name.
+		var sna = [];
+		var arLen = nameArr.length;
+		var text, i;
+
+		for (i = 0; i < arLen; i++){
+			sna[i] = nameArr[i] + "=" + valuArr[i];
+
+		}
+		
+		sna.sort();
+		
+		for (i = 0; i < arLen; i++) {
+    		text += "<option>" + sna[i] + "</option>";
+		}
+		document.getElementById("list1").innerHTML = text;
 	});
 
 });
