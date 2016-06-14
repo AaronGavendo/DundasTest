@@ -24,7 +24,8 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 			arLen = valuArr.length;
 
 			for (i = 0; i < arLen; i++) {
-    			text += "<option>" + nameArr[i] + "=" + valuArr[i] + "</option>";
+				text += "<option id=\"option" + i +  "\">" + nameArr[i] + "=" + valuArr[i] + "</option>";
+				console.log(text);
 			}
 			document.getElementById("list1").innerHTML = text;
 		}
@@ -85,8 +86,8 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 	});
 
 	$("#delete").click(function () {
-		console.log("Delete Pressed");
-		
+
+		$("#option0").remove(); //Removes first entry
 
 	});
 
