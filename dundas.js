@@ -4,7 +4,6 @@ var nameArr = [];
 var valuArr = [];
 var alphanum = /^[0-9a-zA-Z]+$/;
 
-
 	//When the Add button is pressed
 	$("#add").click(function () {
 
@@ -33,7 +32,6 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 		{
 			alert('You need a = sign (eg. Name=Value)'); 
 		}
-
 	});
 
 	$("#sortName").click(function () {
@@ -83,10 +81,14 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 		for (k = 0; k < arLen; k++) {
     		text += "<option>" + newValuArr[k] + "=" + newNameArr[k] + "</option>";
 		}
-		document.getElementById("list1").innerHTML = text;
-		
+		document.getElementById("list1").innerHTML = text;	
 	});
 
+	$("#delete").click(function () {
+		console.log("Delete Pressed");
+		
+
+	});
 
 });
 

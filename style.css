@@ -5,6 +5,7 @@ div /*For all Divs */
 
 div.divadd
 {
+	width: 475px;
 	padding-left: 25px;
 	border: 1px solid blue; /* Delete these lines later */
 }
@@ -20,6 +21,8 @@ div.divlist
 
 div.divbuttons
 {
+	width: 125px;
+	height: 375px;
 	border: 1px solid green; /* Delete these lines later */
     overflow: hidden; /* This prevents the divs from overlapping */
 }
