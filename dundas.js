@@ -1,6 +1,5 @@
 //Function to run when website is loaded
 $(document).ready(function () {
-console.log("Ready Function Loads");
 var nameArr = [];
 var valuArr = [];
 var alphanum = /^[0-9a-zA-Z]+$/;
@@ -26,7 +25,7 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 			arLen = valuArr.length;
 
 			for (i = 0; i < arLen; i++) {
-    			text += "<option>" + nameArr[i] + "  " + valuArr[i] + "</option>";
+    			text += "<option>" + nameArr[i] + "=" + valuArr[i] + "</option>";
 			}
 			document.getElementById("list1").innerHTML = text;
 		}
@@ -62,7 +61,7 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 		var newNameArr = [];
 		var newValuArr = [];
 		var arLen = nameArr.length;
-		var text, i;
+		var text, res, i, j, k;
 
 		//2. Combine Arrays so that Value is in the front of the new array.
 		for (i = 0; i < arLen; i++){
@@ -70,22 +69,22 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 		}
 
 		//3. Sort new array.
-		console.log("Step 3"); 
 		sva.sort();
-		console.log(sva);
-/*
+
 		//4. Break down new array
-		console.log("Step 4");
-		var res = sva.split("=");
-		nameArr.push(res[0]);
-		valuArr.push(res[1]);
-		console.log(nameArr + "=" + valuArr);
+		for (j = 0; j < arLen; j++){
+			res = sva[j].split("=");
+			newNameArr.push(res[0]);
+			newValuArr.push(res[1]);
 
-		*/
+		}
 
-
-
-
+		//5. Put new array on the screen.
+		for (k = 0; k < arLen; k++) {
+    		text += "<option>" + newValuArr[k] + "=" + newNameArr[k] + "</option>";
+		}
+		document.getElementById("list1").innerHTML = text;
+		
 	});
 
 
