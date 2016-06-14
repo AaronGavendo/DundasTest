@@ -20,7 +20,6 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 			var res = nv.split("=");
 			nameArr.push(res[0]);
 			valuArr.push(res[1]);
-			console.log(nameArr, valuArr);
 
 			//This part places those arrays into box in the HTML
 			var arLen, i ,text;
@@ -56,6 +55,39 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 		}
 		document.getElementById("list1").innerHTML = text;
 	});
+
+	$("#sortVal").click(function () {
+		//1. Create Need variables
+		var sva = [];
+		var newNameArr = [];
+		var newValuArr = [];
+		var arLen = nameArr.length;
+		var text, i;
+
+		//2. Combine Arrays so that Value is in the front of the new array.
+		for (i = 0; i < arLen; i++){
+			sva[i] = valuArr[i] + "=" + nameArr[i];
+		}
+
+		//3. Sort new array.
+		console.log("Step 3"); 
+		sva.sort();
+		console.log(sva);
+/*
+		//4. Break down new array
+		console.log("Step 4");
+		var res = sva.split("=");
+		nameArr.push(res[0]);
+		valuArr.push(res[1]);
+		console.log(nameArr + "=" + valuArr);
+
+		*/
+
+
+
+
+	});
+
 
 });
 
