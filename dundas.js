@@ -3,6 +3,9 @@ $(document).ready(function () {
 var nameArr = [];
 var valuArr = [];
 var alphanum = /^[0-9a-zA-Z]+$/;
+var selectedOption = 7;
+
+
 
 	//When the Add button is pressed
 	$("#add").click(function () {
@@ -25,7 +28,6 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 
 			for (i = 0; i < arLen; i++) {
 				text += "<option id=\"option" + i +  "\">" + nameArr[i] + "=" + valuArr[i] + "</option>";
-				console.log(text);
 			}
 			document.getElementById("list1").innerHTML = text;
 		}
@@ -87,10 +89,52 @@ var alphanum = /^[0-9a-zA-Z]+$/;
 
 	$("#delete").click(function () {
 
-		$("#option0").remove(); //Removes first entry
+		//$("#option0").remove(); //Removes first entry
+
+		var text, i, j; 
+		var deleteArr = [];
+		var arLen = nameArr.length;
+
+
+		for (i = 0; i < arLen; i++){
+			deleteArr[i] = nameArr[i] + "=" + valuArr[i];
+			console.log(deleteArr[i]);
+		}
+
+		var index = deleteArr.indexOf($("#list1").val()); //Get selected value as store in index
+
+		console.log(index);
+
+		deleteArr.splice(0, 1);
+
+		for (j = 0; j < arLen; j++) {
+			text += "<option id=\"option" + j +  "\">" + deleteArr[j] + "</option>";
+		}
+		document.getElementById("list1").innerHTML = text;
 
 	});
 
+	//This function is used to get the option number from the clicked item.
+	$("#list1").click(function () {
+		var i;
+		var arLen = valuArr.length;
+		var arOptions = [];
+		//Get the value of what's written in the option
+		var selectedValue = $("#list1").val();
+		//Combine values to get the options on the screen
+		for (i = 0; i < arLen; i++){
+			arOptions[i] = "\"" + nameArr[i] + "=" + valuArr[i] + "\"";
+		}
+		
+		//Search the array to find out the matching strings position
+		//If not match is found it will be '-1'
+		//If there are more than one entry of the same Name=Value, expect an error for now.
+		selectedOption = arOptions.indexOf("\"" + selectedValue + "\"");
+
+		console.log("Selected Value: " + selectedValue);
+		console.log(selectedOption);
+
+	});
 });
 
 
