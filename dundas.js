@@ -3,7 +3,7 @@ $(document).ready(function () {
 var nameArr = [];
 var valuArr = [];
 var alphanum = /^[0-9a-zA-Z]+$/;
-var selectedOption = 7;
+var selectedOption = -1;
 
 
 
@@ -89,28 +89,28 @@ var selectedOption = 7;
 
 	$("#delete").click(function () {
 
-		//$("#option0").remove(); //Removes first entry
-
-		var text, i, j; 
-		var deleteArr = [];
-		var arLen = nameArr.length;
-
-
-		for (i = 0; i < arLen; i++){
-			deleteArr[i] = nameArr[i] + "=" + valuArr[i];
-			console.log(deleteArr[i]);
+		var text, delArLen;
+		delArLen = valuArr.length;
+		//Make sure something is selected that can be deleted
+		if (selectedOption == -1) {
+			alert('Please select something to delete');
 		}
+		//Find spot in arrays base on the number clicked and delete them with splice();
+		else {
+			nameArr.splice(selectedOption, 1);
+			valuArr.splice(selectedOption, 1);
 
-		var index = deleteArr.indexOf($("#list1").val()); //Get selected value as store in index
+			for (var t = 0; t < delArLen; t++)
+			{
+				console.log(nameArr[t] + "=" + valuArr[t]);
+			}
 
-		console.log(index);
+			for (var i = 0; i < delArLen; i++) {
+				text += "<option id=\"option" + i +  "\">" + nameArr[i] + "=" + valuArr[i] + "</option>";
+			}
+			document.getElementById("list1").innerHTML = text;
 
-		deleteArr.splice(0, 1);
-
-		for (j = 0; j < arLen; j++) {
-			text += "<option id=\"option" + j +  "\">" + deleteArr[j] + "</option>";
 		}
-		document.getElementById("list1").innerHTML = text;
 
 	});
 
