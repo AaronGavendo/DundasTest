@@ -37,6 +37,7 @@ var selectedOption = -1;
 		}
 	});
 
+	//Sort by name
 	$("#sortName").click(function () {
 		//Create new array. Splice two arrays. Then sort by name.
 		var sna = [];
@@ -56,6 +57,7 @@ var selectedOption = -1;
 		document.getElementById("list1").innerHTML = text;
 	});
 
+	//Sort by value
 	$("#sortVal").click(function () {
 		//1. Create Need variables
 		var sva = [];
@@ -87,6 +89,7 @@ var selectedOption = -1;
 		document.getElementById("list1").innerHTML = text;	
 	});
 
+	//Delete button
 	$("#delete").click(function () {
 
 		var text, delArLen;
@@ -111,7 +114,6 @@ var selectedOption = -1;
 			document.getElementById("list1").innerHTML = text;
 
 		}
-
 	});
 
 	//This function is used to get the option number from the clicked item.
@@ -133,6 +135,10 @@ var selectedOption = -1;
 
 		console.log("Selected Value: " + selectedValue);
 		console.log(selectedOption);
+	});
+
+	$("#showXML").click(function () {
+		console.log("ShowXML Button pressed");
 
 	});
 });
