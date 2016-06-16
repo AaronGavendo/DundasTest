@@ -137,10 +137,20 @@ var selectedOption = -1;
 		console.log(selectedOption);
 	});
 
+	//Put data into XML format. Display with Alert. 
 	$("#showXML").click(function () {
-		console.log("ShowXML Button pressed");
 
+		var xml = '<XMLDATA>';
+
+		for(var x = 0; x < nameArr.length; x++){
+			xml += '<pair>' + nameArr[x] + '=' + valuArr[x] + '</pair>';
+		}
+
+		xml += '</XMLDATA>';
+
+    	alert(xml);
 	});
+
 });
 
 
