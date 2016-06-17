@@ -108,7 +108,7 @@ var selectedOption = -1;
 				console.log(nameArr[t] + "=" + valuArr[t]);
 			}
 
-			for (var i = 0; i < delArLen; i++) {
+			for (var i = 0; i < (delArLen - 1); i++) { //The -1 removes an undefind value apearing at the end
 				text += "<option id=\"option" + i +  "\">" + nameArr[i] + "=" + valuArr[i] + "</option>";
 			}
 			document.getElementById("list1").innerHTML = text;
