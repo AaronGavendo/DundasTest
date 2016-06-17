@@ -46,7 +46,6 @@ var selectedOption = -1;
 
 		for (i = 0; i < arLen; i++){
 			sna[i] = nameArr[i] + "=" + valuArr[i];
-
 		}
 		
 		sna.sort();
@@ -103,11 +102,6 @@ var selectedOption = -1;
 			nameArr.splice(selectedOption, 1);
 			valuArr.splice(selectedOption, 1);
 
-			for (var t = 0; t < delArLen; t++)
-			{
-				console.log(nameArr[t] + "=" + valuArr[t]);
-			}
-
 			for (var i = 0; i < (delArLen - 1); i++) { //The -1 removes an undefind value apearing at the end
 				text += "<option id=\"option" + i +  "\">" + nameArr[i] + "=" + valuArr[i] + "</option>";
 			}
@@ -132,9 +126,6 @@ var selectedOption = -1;
 		//If not match is found it will be '-1'
 		//If there are more than one entry of the same Name=Value, expect an error for now.
 		selectedOption = arOptions.indexOf("\"" + selectedValue + "\"");
-
-		console.log("Selected Value: " + selectedValue);
-		console.log(selectedOption);
 	});
 
 	//Put data into XML format. Display with Alert. 
